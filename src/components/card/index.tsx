@@ -7,8 +7,10 @@ import { TouchableOpacity } from "react-native";
 import { formatDate } from "@utils/format-date";
 import * as S from "./styles";
 
+type Data = Pick<CheckList, "_id" | "farmer" | "from" | "created_at">;
+
 type Props = {
-  data: CheckList;
+  data: Data;
   onPress: ComponentProps<typeof TouchableOpacity>["onPress"];
 };
 
