@@ -1,4 +1,4 @@
-type CheckList = {
+export type CheckList = {
   _id: number;
   type: string;
   amount_of_milk_produced: string;
