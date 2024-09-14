@@ -1,6 +1,9 @@
-import { FlatList, Text, View } from "react-native";
+import { Card } from "@components/card";
+import { useNavigation } from "@react-navigation/native";
+import { StackScreenNavigationProp } from "@routes/types";
+import * as S from "./styles";
 
-const mock = [
+export const mock = [
   {
     _id: 565,
     type: "BPF",
@@ -76,32 +79,22 @@ const mock = [
 ];
 
 export const HomeScreen = () => {
-  return (
-    <View style={{ paddingVertical: 32, alignItems: "center" }}>
-      <Text>Tela Home</Text>
+  const { navigate } = useNavigation<StackScreenNavigationProp>();
 
-      <FlatList
+  return (
+    <S.Container>
+      <S.Title>Lista de Checklists</S.Title>
+
+      <S.Checklists
         data={mock}
-        style={{
-          backgroundColor: "blue",
-        }}
-        contentContainerStyle={{ backgroundColor: "red" }}
-        renderItem={({ item }) => {
-          const creationData = new Intl.DateTimeFormat("pt-BR", {
-            dateStyle: "short",
-          }).format(new Date(item.created_at));
-          return (
-            <View
-              key={item._id}
-              style={{ borderColor: "black", borderWidth: 1 }}
-            >
-              <Text>{item.farmer.name}</Text>
-              <Text>{item.from.name}</Text>
-              <Text>{creationData}</Text>
-            </View>
-          );
-        }}
+        renderItem={({ item }) => (
+          <Card
+            key={item._id}
+            data={item}
+            onPress={() => navigate("DetailsScreen", { id: item._id })}
+          />
+        )}
       />
-    </View>
+    </S.Container>
   );
 };
