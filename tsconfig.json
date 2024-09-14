@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./src",
+    "types": ["@types/styled-components"],
     "paths": {
       "@types/*": ["@types/*"],
       "@components/*": ["components/*"],
@@ -10,7 +11,8 @@
       "@routes/*": ["routes/*"],
       "@screens/*": ["screens/*"],
       "@services/*": ["services/*"],
-      "@theme/*": ["theme/*"]
+      "@theme/*": ["theme/*"],
+      "@utils/*": ["utils/*"]
     }
   },
 }
