@@ -89,7 +89,7 @@ export const HomeScreen = () => {
           <Card
             key={item._id}
             data={item}
-            onPress={() => navigate("DetailsScreen", { id: item._id })}
+            onPress={() => navigate("DetailsScreen", { id: String(item._id) })}
           />
         )}
       />
