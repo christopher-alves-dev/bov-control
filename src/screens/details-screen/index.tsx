@@ -3,6 +3,9 @@ import { Loading } from "@components/loading";
 import { formatDate } from "@utils/format-date";
 import { useFetchChecklist } from "./hooks/use-fetch-checklist";
 import * as S from "./styles";
+import { Button } from "@components/button";
+import { useNavigation } from "@react-navigation/native";
+import { StackScreenNavigationProp } from "@routes/types";
 
 type Props = {
   route: {
@@ -13,6 +16,7 @@ type Props = {
 };
 
 export const DetailsScreen = ({ route }: Props) => {
+  const { navigate } = useNavigation<StackScreenNavigationProp>();
   const { checklist, isFetching } = useFetchChecklist(route.params.id);
 
   if (isFetching) {
@@ -24,6 +28,9 @@ export const DetailsScreen = ({ route }: Props) => {
 
   return (
     <S.Container>
+      <Button onPress={() => navigate("UpdateScreen", { farm: checklist })}>
+        Editar informações
+      </Button>
       <S.Content>
         <InfoBox label="Supervisor(a)" value={checklist.from.name} />
 

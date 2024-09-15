@@ -1,6 +1,15 @@
 import { Text, TextInput, View } from "react-native";
 
-export const UpdateScreen = () => {
+type Props = {
+  route: {
+    params: {
+      farm: string;
+    };
+  };
+};
+
+export const UpdateScreen = ({ route }: Props) => {
+  console.log({ data: route.params.farm });
   return (
     <View>
       <Text>Tela de criação do checklist</Text>
