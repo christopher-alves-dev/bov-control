@@ -1,3 +1,4 @@
+import { Row } from "@components/row";
 import styled from "styled-components/native";
 
 export const Container = styled.TouchableOpacity`
@@ -23,9 +24,7 @@ export const Body = styled.View`
   gap: 8px;
 `;
 
-export const Row = styled.View`
-  flex-direction: row;
-  align-items: center;
+export const CustomRow = styled(Row)`
   gap: 8px;
 `;
 

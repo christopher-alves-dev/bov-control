@@ -9,11 +9,6 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.blue[50]};
 `;
 
-export const Row = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
 export const Checklists = styled(
   FlatList as new (props: FlatListProps<CheckList>) => FlatList<CheckList>
 ).attrs({

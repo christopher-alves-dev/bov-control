@@ -8,12 +8,12 @@ type Props = {
 export const InfoBox = ({ label, value }: Props) => {
   return (
     <S.Block>
-      <S.Row>
+      <S.CustomRow>
         <S.CustomLabel>{label}</S.CustomLabel>
         <S.ValueContainer>
           <S.Value>{value}</S.Value>
         </S.ValueContainer>
-      </S.Row>
+      </S.CustomRow>
       <S.Divider />
     </S.Block>
   );

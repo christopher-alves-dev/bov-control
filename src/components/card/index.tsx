@@ -24,20 +24,20 @@ export const Card = ({ data, onPress }: Props) => {
       </S.Header>
 
       <S.Body>
-        <S.Row>
+        <S.CustomRow>
           <FontAwesomeIcons name="user-alt" size={20} />
           <S.InfoText>{data.to.name}</S.InfoText>
-        </S.Row>
+        </S.CustomRow>
 
-        <S.Row>
+        <S.CustomRow>
           <Entypo name="location-pin" size={20} />
           <S.InfoText>{data.farmer.city}</S.InfoText>
-        </S.Row>
+        </S.CustomRow>
 
-        <S.Row>
+        <S.CustomRow>
           <FontAwesomeIcons name="calendar-day" size={20} />
           <S.InfoText>{creationData}</S.InfoText>
-        </S.Row>
+        </S.CustomRow>
       </S.Body>
     </S.Container>
   );

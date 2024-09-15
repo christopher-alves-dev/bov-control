@@ -1,15 +1,13 @@
 import { Label } from "@components/label";
+import { Row } from "@components/row";
 import styled from "styled-components/native";
 
 export const Block = styled.View`
   gap: 8px;
 `;
 
-export const Row = styled.View`
-  flex-direction: row;
-  align-items: center;
+export const CustomRow = styled(Row)`
   justify-content: space-between;
-
   gap: 8px;
 `;
 
