@@ -30,7 +30,7 @@ export const Row = styled.View`
 `;
 
 export const InfoText = styled.Text`
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.black[900]};
   font-size: 14px;
   font-family: ${({ theme }) => theme.fonts.regular};
 `;
