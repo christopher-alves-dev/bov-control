@@ -19,6 +19,10 @@ export default {
       300: "#0000005c",
       900: "#000000eb",
     },
+    red: {
+      100: "#FED7D7",
+      500: "#E53E3E",
+    },
   },
   fonts: {
     regular: "Roboto_400Regular",
