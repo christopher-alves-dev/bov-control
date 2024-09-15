@@ -6,6 +6,7 @@ import { StackScreenNavigationProp } from "@routes/types";
 import { Image } from "expo-image";
 import { useFetchChecklists } from "./hooks/use-fetch-checklists";
 import * as S from "./styles";
+import { Button } from "@components/button";
 
 export const HomeScreen = () => {
   const { navigate } = useNavigation<StackScreenNavigationProp>();
@@ -17,16 +18,22 @@ export const HomeScreen = () => {
 
   return (
     <S.Container>
-      <Image
-        source={Logo}
-        contentFit="contain"
-        contentPosition={{
-          left: 0,
-        }}
-        style={{
-          height: 30,
-        }}
-      />
+      <S.Row>
+        <Image
+          source={Logo}
+          contentFit="contain"
+          contentPosition={{
+            left: 0,
+          }}
+          style={{
+            flex: 1,
+            height: 30,
+          }}
+        />
+        <Button onPress={() => navigate("CreateScreen")}>
+          Criar checklist
+        </Button>
+      </S.Row>
       <S.Checklists
         data={checklists}
         renderItem={({ item }) => (

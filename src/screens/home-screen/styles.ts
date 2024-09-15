@@ -5,8 +5,13 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   flex: 1;
   padding: 24px;
-  gap: 16px;
+  gap: 24px;
   background-color: ${({ theme }) => theme.colors.blue[50]};
+`;
+
+export const Row = styled.View`
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const Checklists = styled(
