@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./src",
-    "types": ["@types/styled-components"],
+    "types": ["@types/styled-components", "@types/node"],
     "paths": {
       "@types/*": ["@types/*"],
       "@components/*": ["components/*"],
