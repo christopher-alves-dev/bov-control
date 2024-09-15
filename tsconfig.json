@@ -5,6 +5,7 @@
     "baseUrl": "./src",
     "types": ["@types/styled-components", "@types/node"],
     "paths": {
+      "@assets/*": ["assets/*"],
       "@types/*": ["@types/*"],
       "@components/*": ["components/*"],
       "@libs/*": ["libs/*"],
