@@ -9,11 +9,6 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.blue[100]};
 `;
 
-export const Title = styled.Text`
-  font-size: 24px;
-  font-family: ${({ theme }) => theme.fonts.regular};
-`;
-
 export const Checklists = styled(
   FlatList as new (props: FlatListProps<CheckList>) => FlatList<CheckList>
 ).attrs({

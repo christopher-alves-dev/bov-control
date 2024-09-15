@@ -83,8 +83,6 @@ export const HomeScreen = () => {
 
   return (
     <S.Container>
-      <S.Title>Lista de Checklists</S.Title>
-
       <S.Checklists
         data={mock}
         renderItem={({ item }) => (
