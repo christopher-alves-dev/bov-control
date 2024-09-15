@@ -1,4 +1,4 @@
-import { CheckList } from "@services/api/types";
+import { CheckList } from "@services/api/checklist/types";
 import { FlatList, FlatListProps } from "react-native";
 import styled from "styled-components/native";
 

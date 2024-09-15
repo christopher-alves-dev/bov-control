@@ -1,6 +1,6 @@
 import Entypo from "@expo/vector-icons/Entypo";
 import FontAwesomeIcons from "@expo/vector-icons/FontAwesome5";
-import { CheckList } from "@services/api/types";
+import { CheckList } from "@services/api/checklist/types";
 import React, { ComponentProps } from "react";
 import { TouchableOpacity } from "react-native";
 

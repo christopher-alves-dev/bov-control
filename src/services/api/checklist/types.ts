@@ -24,3 +24,5 @@ export type CheckList = {
 };
 
 export type IndexCheckListResponse = CheckList[];
+
+export type ShowCheckListResponse = CheckList;
