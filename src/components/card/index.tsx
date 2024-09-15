@@ -7,7 +7,7 @@ import { TouchableOpacity } from "react-native";
 import { formatDate } from "@utils/format-date";
 import * as S from "./styles";
 
-type Data = Pick<CheckList, "_id" | "farmer" | "from" | "created_at">;
+type Data = Pick<CheckList, "_id" | "farmer" | "to" | "created_at">;
 
 type Props = {
   data: Data;
@@ -26,7 +26,7 @@ export const Card = ({ data, onPress }: Props) => {
       <S.Body>
         <S.Row>
           <FontAwesomeIcons name="user-alt" size={20} />
-          <S.InfoText>{data.from.name}</S.InfoText>
+          <S.InfoText>{data.to.name}</S.InfoText>
         </S.Row>
 
         <S.Row>

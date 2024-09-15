@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex: 1;
   padding: 24px;
   gap: 16px;
-  background-color: ${({ theme }) => theme.colors.blue[100]};
+  background-color: ${({ theme }) => theme.colors.blue[50]};
 `;
 
 export const Checklists = styled(

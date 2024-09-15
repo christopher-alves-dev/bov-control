@@ -1,6 +1,8 @@
+import Logo from "@assets/images/bov-full-logo.png";
 import { Card } from "@components/card";
 import { useNavigation } from "@react-navigation/native";
 import { StackScreenNavigationProp } from "@routes/types";
+import { Image } from "expo-image";
 import * as S from "./styles";
 
 export const mock = [
@@ -83,6 +85,16 @@ export const HomeScreen = () => {
 
   return (
     <S.Container>
+      <Image
+        source={Logo}
+        contentFit="contain"
+        contentPosition={{
+          left: 0,
+        }}
+        style={{
+          height: 30,
+        }}
+      />
       <S.Checklists
         data={mock}
         renderItem={({ item }) => (
