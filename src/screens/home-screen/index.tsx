@@ -36,6 +36,7 @@ export const HomeScreen = () => {
       </S.Row>
       <S.Checklists
         data={checklists}
+        keyExtractor={(item) => String(item._id)}
         renderItem={({ item }) => (
           <Card
             key={item._id}

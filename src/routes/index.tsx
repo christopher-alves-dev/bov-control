@@ -24,6 +24,7 @@ export const Routes = () => {
             fontFamily: theme.fonts.bold,
             fontSize: 20,
           },
+          headerTintColor: theme.colors.white,
           headerBackTitleVisible: false,
         }}
       >
