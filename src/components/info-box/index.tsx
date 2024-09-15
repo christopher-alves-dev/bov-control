@@ -9,7 +9,7 @@ export const InfoBox = ({ label, value }: Props) => {
   return (
     <S.Block>
       <S.Row>
-        <S.Label>{label}</S.Label>
+        <S.CustomLabel>{label}</S.CustomLabel>
         <S.ValueContainer>
           <S.Value>{value}</S.Value>
         </S.ValueContainer>

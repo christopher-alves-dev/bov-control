@@ -1,3 +1,4 @@
+import { Label } from "@components/label";
 import styled from "styled-components/native";
 
 export const Block = styled.View`
@@ -12,11 +13,8 @@ export const Row = styled.View`
   gap: 8px;
 `;
 
-export const Label = styled.Text`
+export const CustomLabel = styled(Label)`
   max-width: 160px;
-  font-size: 16px;
-  font-family: ${({ theme }) => theme.fonts.bold};
-  color: ${({ theme }) => theme.colors.black[300]};
 `;
 
 export const ValueContainer = styled.View`
