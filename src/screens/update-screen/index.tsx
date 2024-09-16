@@ -1,27 +1,81 @@
-import { Text, TextInput, View } from "react-native";
+import { Button } from "@components/button";
+import { InputForm } from "@components/input-form";
+import { Label } from "@components/label";
+import { Loading } from "@components/loading";
+import { SwitchForm } from "@components/switch-form";
+import { FormProvider } from "react-hook-form";
+import { useUpdateChecklistForm } from "./hooks/use-update-checklist-form";
+import * as S from "./styles";
 
-type Props = {
-  route: {
-    params: {
-      farm: string;
-    };
-  };
-};
+export const UpdateScreen = () => {
+  const { formMethods, handleUpdate, isLoading } = useUpdateChecklistForm();
 
-export const UpdateScreen = ({ route }: Props) => {
-  console.log({ data: route.params.farm });
   return (
-    <View>
-      <Text>Tela de criação do checklist</Text>
+    <FormProvider {...formMethods}>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <S.Container>
+          <InputForm
+            name="farm.name"
+            renderLabel={<Label>Nome da Fazenda</Label>}
+          />
 
-      <View>
-        <TextInput placeholder="Nome do Fazendeiro" />
-        <TextInput placeholder="Nome da Fazenda" />
-        <TextInput placeholder="Nome da Cidade" />
-        <TextInput placeholder="Nome do Supervisor" />
-        <TextInput placeholder="quantidade de leite produzida no mês" />
-        <TextInput placeholder="quantidade de cabeça de gado" />
-      </View>
-    </View>
+          <InputForm
+            name="farm.farmer"
+            renderLabel={<Label>Nome do Fazendeiro</Label>}
+          />
+
+          <InputForm name="farm.city" renderLabel={<Label>Cidade</Label>} />
+
+          <InputForm
+            name="farm.supervisor"
+            renderLabel={<Label>Supervisor</Label>}
+          />
+
+          <InputForm name="farm.type" renderLabel={<Label>Tipo</Label>} />
+
+          <InputForm
+            name="farm.milkProduction"
+            renderLabel={<Label>Produção de Leite (Litros)</Label>}
+            keyboardType="numeric"
+          />
+
+          <InputForm
+            name="farm.cowsQuantity"
+            renderLabel={<Label>Quantidade de Vacas</Label>}
+            keyboardType="numeric"
+          />
+
+          <SwitchForm
+            name="farm.hadSupervision"
+            renderLabel={<Label>Houve Supervisão?</Label>}
+            leftText="Não"
+            rightText="Sim"
+          />
+
+          <InputForm
+            name="farm.location.latitude"
+            renderLabel={<Label>Latitude</Label>}
+            keyboardType="numbers-and-punctuation"
+          />
+
+          <InputForm
+            name="farm.location.longitude"
+            renderLabel={<Label>Longitude</Label>}
+            keyboardType="numbers-and-punctuation"
+          />
+
+          <Button
+            style={{
+              marginTop: 20,
+            }}
+            onPress={formMethods.handleSubmit(handleUpdate)}
+          >
+            Salvar
+          </Button>
+        </S.Container>
+      )}
+    </FormProvider>
   );
 };

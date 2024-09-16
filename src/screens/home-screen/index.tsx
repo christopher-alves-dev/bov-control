@@ -8,14 +8,22 @@ import { useFetchChecklists } from "./hooks/use-fetch-checklists";
 import * as S from "./styles";
 import { Button } from "@components/button";
 import { Row } from "@components/row";
+import { useChecklist } from "@contexts/checklist-context";
+import { CheckList } from "@services/api/checklist/types";
 
 export const HomeScreen = () => {
   const { navigate } = useNavigation<StackScreenNavigationProp>();
   const { offlineChecklists, isFetching } = useFetchChecklists();
+  const { setSelectedChecklist } = useChecklist();
 
   if (isFetching) {
     return <Loading />;
   }
+
+  const handleSelectChecklist = (selected: CheckList) => {
+    setSelectedChecklist(selected);
+    navigate("DetailsScreen");
+  };
 
   return (
     <S.Container>
@@ -42,7 +50,7 @@ export const HomeScreen = () => {
           <Card
             key={String(item._id)}
             data={item}
-            onPress={() => navigate("DetailsScreen", { id: item._id })}
+            onPress={() => handleSelectChecklist(item)}
           />
         )}
       />

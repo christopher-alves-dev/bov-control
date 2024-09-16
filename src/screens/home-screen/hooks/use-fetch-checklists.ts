@@ -8,7 +8,10 @@ import { BSON, UpdateMode } from "realm";
 export const useFetchChecklists = () => {
   const [isFetching, setIsFetching] = useState(true);
   const realm = useRealm();
-  const offlineChecklists = useQuery<Checklist>("Checklist");
+  const offlineChecklists = useQuery<Checklist>("Checklist").sorted(
+    "created_at",
+    true
+  );
 
   const fetchChecklists = async () => {
     try {

@@ -1,6 +1,8 @@
+type CheckListTypes = "BPA" | "Antibiótico" | "BPF";
+
 export type CheckList = {
   _id: Realm.BSON.ObjectId;
-  type: string;
+  type: `${CheckListTypes}`;
   amount_of_milk_produced: string;
   farmer: {
     name: string;
@@ -25,3 +27,10 @@ export type CheckList = {
 export type IndexCheckListResponse = CheckList[];
 
 export type ShowCheckListResponse = CheckList;
+
+export type CreateCheckListPayload = Array<
+  Omit<CheckList, "amount_of_milk_produced" | "number_of_cows_head"> & {
+    amount_of_milk_produced: number;
+    number_of_cows_head: number;
+  }
+>;
