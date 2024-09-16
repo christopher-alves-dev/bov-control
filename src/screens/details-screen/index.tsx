@@ -1,30 +1,31 @@
+import { Button } from "@components/button";
 import { InfoBox } from "@components/info-box";
 import { Loading } from "@components/loading";
-import { formatDate } from "@utils/format-date";
-import { useFetchChecklist } from "./hooks/use-fetch-checklist";
-import * as S from "./styles";
-import { Button } from "@components/button";
+import { useObject } from "@libs/realm";
+import { Checklist } from "@libs/realm/schemas/checklist";
 import { useNavigation } from "@react-navigation/native";
 import { StackScreenNavigationProp } from "@routes/types";
+import { formatDate } from "@utils/format-date";
+import * as S from "./styles";
 
 type Props = {
   route: {
     params: {
-      id: string;
+      id: Realm.BSON.ObjectId;
     };
   };
 };
 
 export const DetailsScreen = ({ route }: Props) => {
   const { navigate } = useNavigation<StackScreenNavigationProp>();
-  const { checklist, isFetching } = useFetchChecklist(route.params.id);
+  const checklist = useObject<Checklist>("Checklist", route.params.id);
 
-  if (isFetching) {
+  if (!checklist) {
     return <Loading />;
   }
 
-  const creationData = formatDate(checklist.created_at);
-  const hadSupervision = checklist.had_supervision ? "Sim" : "Não";
+  const creationData = formatDate(checklist.created_at!);
+  const hadSupervision = checklist?.had_supervision ? "Sim" : "Não";
 
   return (
     <S.Container>

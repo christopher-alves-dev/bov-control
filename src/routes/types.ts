@@ -1,13 +1,13 @@
+import { Checklist } from "@libs/realm/schemas/checklist";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { CheckList } from "@services/api/checklist/types";
 
 export type StackNavigationParamList = {
   HomeScreen: undefined;
   CreateScreen: undefined;
   UpdateScreen: {
-    farm: CheckList;
+    farm: Checklist;
   };
-  DetailsScreen: { id: string };
+  DetailsScreen: { id: Realm.BSON.ObjectId };
 };
 
 export type StackScreenNavigationProp =
