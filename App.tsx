@@ -7,6 +7,7 @@ import {
 import { RealmProvider } from "@libs/realm";
 import { Routes } from "@routes/index";
 import theme from "@theme/index";
+import { ChecklistProvider } from "contexts/checklist-context";
 import { StatusBar } from "expo-status-bar";
 import Toast from "react-native-toast-message";
 import { ThemeProvider } from "styled-components/native";
@@ -23,11 +24,13 @@ export default function App() {
 
   return (
     <RealmProvider>
-      <ThemeProvider theme={theme}>
-        <StatusBar style="auto" />
-        <Routes />
-        <Toast />
-      </ThemeProvider>
+      <ChecklistProvider>
+        <ThemeProvider theme={theme}>
+          <StatusBar style="auto" />
+          <Routes />
+          <Toast />
+        </ThemeProvider>
+      </ChecklistProvider>
     </RealmProvider>
   );
 }
