@@ -13,8 +13,12 @@ const show = (id: string) =>
 const create = (payload: CreateCheckListPayload) =>
   api.post("/v1/checkList", payload);
 
+const update = (payload: CreateCheckListPayload) =>
+  api.post(`/v1/checkList/${payload._id}`, payload);
+
 export const checkListApi = {
   index,
   show,
   create,
+  update,
 };

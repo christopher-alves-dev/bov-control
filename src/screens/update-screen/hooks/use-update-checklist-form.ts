@@ -2,6 +2,7 @@ import { useChecklist } from "@contexts/checklist-context";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useObject, useRealm } from "@libs/realm";
 import { Checklist } from "@libs/realm/schemas/checklist";
+import { checkListApi } from "@services/api/checklist";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Toast from "react-native-toast-message";
@@ -25,29 +26,38 @@ export const useUpdateChecklistForm = () => {
     },
   });
 
-  // const syncWithAPI = async () => {
-  //   const checklists = realm.objects<Checklist>("Checklist");
+  const syncWithAPI: SubmitHandler<FormSchemaType> = async (data) => {
+    try {
+      const preparePayload = {
+        _id: selectedChecklist!._id,
+        type: data.farm.type,
+        amount_of_milk_produced: Number(data.farm.milkProduction),
+        number_of_cows_head: Number(data.farm.cowsQuantity),
+        had_supervision: data.farm.hadSupervision,
+        farmer: {
+          name: data.farm.name,
+          city: data.farm.city,
+        },
+        from: {
+          name: data.farm.supervisor,
+        },
+        to: {
+          name: data.farm.farmer,
+        },
+        location: {
+          latitude: Number(data.farm.location.latitude),
+          longitude: Number(data.farm.location.longitude),
+        },
+        created_at: selectedChecklist!.created_at,
+        updated_at: new Date(),
+      };
 
-  //   const formattedChecklists = checklists.map((checklist) => ({
-  //     _id: checklist._id,
-  //     type: checklist.type,
-  //     amount_of_milk_produced: Number(checklist.amount_of_milk_produced),
-  //     number_of_cows_head: Number(checklist.number_of_cows_head),
-  //     farmer: checklist.farmer,
-  //     from: checklist.from,
-  //     to: checklist.to,
-  //     had_supervision: checklist.had_supervision,
-  //     location: checklist.location,
-  //     created_at: checklist.created_at,
-  //     updated_at: checklist.updated_at,
-  //   }));
-
-  //   try {
-  //     await checkListApi.create(formattedChecklists);
-  //   } catch (error) {
-  //     console.log("Erro ao sincronizar", { error });
-  //   }
-  // };
+      const response = await checkListApi.update(preparePayload);
+      console.log({ response: response.data });
+    } catch (error) {
+      console.log("Erro ao sincronizar", { error });
+    }
+  };
 
   const handleUpdate: SubmitHandler<FormSchemaType> = (data) => {
     if (!offlineChecklist) {
@@ -61,6 +71,7 @@ export const useUpdateChecklistForm = () => {
 
     try {
       setIsLoading(true);
+
       realm.write(() => {
         offlineChecklist!.type = data.farm.type;
         offlineChecklist!.amount_of_milk_produced = String(
@@ -94,8 +105,7 @@ export const useUpdateChecklistForm = () => {
       setIsLoading(false);
     }
 
-    // Sincronizar com a API quando houver conexão
-    // syncWithAPI();
+    syncWithAPI(data);
   };
 
   useEffect(() => {
