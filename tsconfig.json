@@ -6,6 +6,7 @@
     "types": ["@types/styled-components", "@types/node"],
     "paths": {
       "@assets/*": ["assets/*"],
+      "@contexts/*": ["contexts/*"],
       "@types/*": ["@types/*"],
       "@components/*": ["components/*"],
       "@libs/*": ["libs/*"],
