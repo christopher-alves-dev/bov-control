@@ -11,7 +11,7 @@ import { Row } from "@components/row";
 
 export const HomeScreen = () => {
   const { navigate } = useNavigation<StackScreenNavigationProp>();
-  const { checklists, isFetching } = useFetchChecklists();
+  const { offlineChecklists, isFetching } = useFetchChecklists();
 
   if (isFetching) {
     return <Loading />;
@@ -36,13 +36,13 @@ export const HomeScreen = () => {
         </Button>
       </Row>
       <S.Checklists
-        data={checklists}
+        data={offlineChecklists}
         keyExtractor={(item) => String(item._id)}
         renderItem={({ item }) => (
           <Card
-            key={item._id}
+            key={String(item._id)}
             data={item}
-            onPress={() => navigate("DetailsScreen", { id: String(item._id) })}
+            onPress={() => navigate("DetailsScreen", { id: item._id })}
           />
         )}
       />

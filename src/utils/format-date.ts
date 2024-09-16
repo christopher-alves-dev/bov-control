@@ -1,4 +1,4 @@
-export const formatDate = (date: string) => {
+export const formatDate = (date: string | Date) => {
   if (!date) return "";
 
   return new Intl.DateTimeFormat("pt-BR", {

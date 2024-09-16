@@ -1,5 +1,5 @@
 export type CheckList = {
-  _id: number;
+  _id: Realm.BSON.ObjectId;
   type: string;
   amount_of_milk_produced: string;
   farmer: {
@@ -18,9 +18,8 @@ export type CheckList = {
     latitude: number;
     longitude: number;
   };
-  created_at: string;
-  updated_at: string;
-  __v: number;
+  created_at: Date;
+  updated_at: Date;
 };
 
 export type IndexCheckListResponse = CheckList[];
