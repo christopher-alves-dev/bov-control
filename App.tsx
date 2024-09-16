@@ -4,6 +4,7 @@ import {
   Roboto_700Bold,
   useFonts,
 } from "@expo-google-fonts/roboto";
+import { RealmProvider } from "@libs/realm";
 import { Routes } from "@routes/index";
 import theme from "@theme/index";
 import { StatusBar } from "expo-status-bar";
@@ -21,10 +22,12 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <StatusBar style="auto" />
-      <Routes />
-      <Toast />
-    </ThemeProvider>
+    <RealmProvider>
+      <ThemeProvider theme={theme}>
+        <StatusBar style="auto" />
+        <Routes />
+        <Toast />
+      </ThemeProvider>
+    </RealmProvider>
   );
 }
