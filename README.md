@@ -4,7 +4,7 @@
   <img src="./src/assets/images/bov-full-logo.png" alt="Bov Control logo" />
 </p>
 
-Este projeto é um aplicativo de gestão de checklists, desenvolvido em **React Native** com suporte a **RealmDB** para gerenciamento de dados offline e sincronização com uma API. O projeto permite a criação, atualização, listagem e visualização de checklists de forma **offline-first**, com sincronização automática quando houver conexão com a internet.
+Este projeto é um aplicativo de gestão de checklists, desenvolvido em **React Native** com suporte a **RealmDB** para gerenciamento de dados offline e sincronização com uma API. O projeto permite a criação, atualização, listagem e visualização de checklists de forma **offline-first**.
 
 ## 🛠 Tecnologias Utilizadas
 
@@ -19,8 +19,8 @@ Este projeto é um aplicativo de gestão de checklists, desenvolvido em **React 
 ## ⚙️ Funcionalidades
 
 - Criação, atualização, listagem e visualização de checklists.
-- Suporte offline-first com sincronização de dados ao reconectar à internet.
-- Interface simples e responsiva.
+- Suporte offline-first
+- Sincronização de dados ao reconectar à internet (não implementado).
 
 ## 📦 Clonando o projeto
 
