@@ -6,14 +6,7 @@
 
 Este projeto é um aplicativo de gestão de checklists, desenvolvido em **React Native** com suporte a **RealmDB** para gerenciamento de dados offline e sincronização com uma API. O projeto permite a criação, atualização, listagem e visualização de checklists de forma **offline-first**.
 
-## 🔗 Links rápidos
-
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Funcionalidades](#-funcionalidades)
-- [Clonando o projeto](#-clonando-o-projeto)
-- [Rodando o projeto](#-rodando-o-projeto)
-
-## Tecnologias Utilizadas(#tecnologias-usadas)
+## [🛠 Tecnologias Utilizadas](#tecnologias_utilizadas)
 
 - [React Native](https://reactnative.dev/)
 - [RealmDB](https://realm.io/) para gerenciamento de dados offline
@@ -23,13 +16,13 @@ Este projeto é um aplicativo de gestão de checklists, desenvolvido em **React 
 - [React Hook Form](https://react-hook-form.com/) para controle de formulários
 - [Expo](https://docs.expo.dev/) para desenvolvimento mobile
 
-## ⚙️ Funcionalidades
+## [⚙️ Funcionalidades](#funcionalidades)
 
 - Criação, atualização, listagem e visualização de checklists.
 - Suporte offline-first
 - Sincronização de dados ao reconectar à internet (não implementado).
 
-## 📦 Clonando o projeto
+## [📦 Clonando o projeto](#clonando-o-projeto)
 
 Para clonar o repositório e configurar o ambiente local, siga os passos abaixo:
 
@@ -63,7 +56,7 @@ Na raiz do projeto, crie o `.env` com a variável de ambiente abaixo. O valor é
 EXPO_PUBLIC_API_URL=
 ```
 
-## 🚀 Rodando o projeto
+## [🚀 Rodando o projeto](#rodando-o-projeto)
 
 Para rodar o projeto é necessário rodá-lo com o `expo-dev-client`, já que o Realm faz instalações nativas e o Expo Go suporta apenas libs puramente Javascript.
 Pode ver mais a fundo neste [Tutorial](https://www.mongodb.com/pt-br/docs/atlas/device-sdks/sdk/react-native/bootstrap-with-expo/#build-and-run-the-application) do Realm-js.
