@@ -29,13 +29,13 @@ Para clonar o repositório e configurar o ambiente local, siga os passos abaixo:
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/christopher-alves-dev/bov-control.git
 ```
 
 ### 2. Navegue até o diretório do projeto
 
 ```bash
-cd nome-do-repositorio
+cd bov-control
 ```
 
 ### 3. Instale as dependências
