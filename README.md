@@ -48,7 +48,14 @@ npm install
 yarn install
 ```
 
-### 4. Rodando o projeto
+### 4. Crie o arquivo .env
+
+Na raiz do projeto, crie o `.env` com a variável de ambiente abaixo. O valor é a URL da sua api.
+```env
+EXPO_PUBLIC_API_URL=
+```
+
+### 5. Rodando o projeto
 
 ```bash
 expo start
